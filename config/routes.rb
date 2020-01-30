@@ -9,6 +9,8 @@ Rails.application.routes.draw do
       resources :sessions, only: [:create]
       delete :logout, to: "sessions#logout"
       get :isLogged_in, to: "sessions#isLogged_in"
+      get '*path', to: 'home#index'
+
   #   end
   # end
 end
