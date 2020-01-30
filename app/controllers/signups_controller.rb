@@ -1,11 +1,17 @@
 # frozen_string_literal: true
 
-class Api::V1::SignupController < ApplicationController
+class SignupController < ApplicationController
   def create
     # render json: {user: params.permit(:name, :email, :password, :password_confirmation)}
-    user = User.new(user_params)
+    # user = User.create(user_params)
+    user = User.create!(
+      email: params["user"]["email"],
+      password: params["user"]["password"],
+      password_confirmation: params["user"]["password_confirmation"]
+    )
 
     if user.save
+      session[:user_id] = user.id
       render json: {
         status: :created,
         user: user
