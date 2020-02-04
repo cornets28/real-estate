@@ -70,17 +70,16 @@ class Register extends Component {
     }
     return (
       <div
-        className="user-creation-success-notification bg-violet1 d-flex \
-    flex-column align-items-center justify-content-center p-4"
+        className=""
       >
-        <div className="my-4">
-          <h3 className="font-weight-bolder text-white">
-            Your account is created
+        <div className="">
+          <h3 className="">
+            Your account is sucessfully created
           </h3>
         </div>
-        <div className="d-flex justify-content-around w-100 my-4">
+        <div className="">
           <div
-            className="d-flex flex-column align-items-center text-success"
+            className=""
             onClick={() => this.props.history.push("/login")}
           >
             <div>
@@ -89,11 +88,11 @@ class Register extends Component {
               </h2>
             </div>
             <div>
-              <h3 className="font-weight-bolder">Login</h3>
+              <h3 className="">Login</h3>
             </div>
           </div>
           <div
-            className="d-flex flex-column align-items-center text-danger"
+            className=""
             onClick={() => this.setState({ success: false })}
           >
             <div>
@@ -102,7 +101,7 @@ class Register extends Component {
               </h2>
             </div>
             <div>
-              <h3 className="font-weight-bolder">Close</h3>
+              <h3 className="">Close</h3>
             </div>
           </div>{" "}
         </div>

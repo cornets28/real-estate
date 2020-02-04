@@ -8,10 +8,10 @@ export default class Login extends Component {
     this.state = {
       email: "",
       password: "",
-      loginErrors: ""
+      loginErrors: {}
     };
 
-    this.handleSubmit = this.handleSubmit.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -21,7 +21,7 @@ export default class Login extends Component {
     });
   }
 
-  handleSubmit(event) {
+  submitHandler = event => {
     const { email, password } = this.state;
 
     axios
@@ -36,15 +36,18 @@ export default class Login extends Component {
         { withCredentials: true }
       )
       .then(response => {
-        if (response.data.logged_in) {
-          this.props.handleSuccessfulAuth(response.data);
+        if (response.data.status == "created") {
+          // console.log(response.data.user.name);
+          this.props.history.push("/");
         }
       })
       .catch(error => {
-        console.log("login error", error);
+        this.setState({
+          loginErrors: error
+        });
       });
     event.preventDefault();
-  }
+  };
 
   render() {
     return (
@@ -68,7 +71,9 @@ export default class Login extends Component {
             required
           />
 
-          <button type="submit">Login</button>
+          <button onClick={event => this.submitHandler(event)} type="submit">
+            Login
+          </button>
         </form>
       </div>
     );

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import NavigationBar from "../components/NavigationBar/NavigationBar";
 import Register from "../components/Register/Register";
 
 export default class Home extends Component {
@@ -14,13 +15,7 @@ export default class Home extends Component {
   render() {
     return (
       <div>
-        <h1>Home</h1>
-        <Link to="/register" className="btn btn-lg custom-button" role="button">
-          Register now
-        </Link>
-        <Link to="/login" className="btn btn-lg custom-button" role="button">
-          Login
-        </Link>
+        <NavigationBar />
       </div>
     );
   }
