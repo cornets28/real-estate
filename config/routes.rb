@@ -5,11 +5,11 @@ Rails.application.routes.draw do
 
   # namespace :api do
   #   namespace :v1 do
-      resources :signups, only: [:create]
-      resources :sessions, only: [:create]
-      delete :logout, to: "sessions#logout"
-      get :isLogged_in, to: "sessions#isLogged_in"
-      get '*path', to: 'home#index'
+  resources :signups, only: [:create]
+  resources :sessions, only: [:create]
+  delete :logout, to: 'sessions#logout'
+  get :isLogged_in, to: 'sessions#isLogged_in'
+  get '*path', to: 'home#index'
 
   #   end
   # end
